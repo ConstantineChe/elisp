@@ -7,12 +7,24 @@
 (load "~/elisp/secrets.el")
 ;;(load "~/elisp/rc/emacs-rc-clojure.el")
 
+;;;;; Appearance
+
+;; Color theme
+(load "~/elisp/color-theme-github.el")
+
+;; Remove gui
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+;; Remove splash screen
+(setq inhibit-splash-screen t)
+
 ;;;;; Key bindngs
 
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
 (define-key my-keys-minor-mode-map (kbd "M-;") 'execute-extended-command)
-(define-key my-keys-minor-mode-map (kbd "C-;") 'Control-X-prefix)
+(define-key my-keys-minor-mode-map (kbd "C-;") ctl-x-map)
 
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
@@ -48,7 +60,9 @@
 
 ;;;;;; minor modes
 
+;; Key bindings
 (my-keys-minor-mode 1)
 
+;; Unset key bindings from minibuffer
 (defun my-minibuffer-setup-hook ()
   (my-keys-minor-mode 0))
