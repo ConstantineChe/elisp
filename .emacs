@@ -30,7 +30,7 @@
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map)
 
-(my-keys-minor-mode 1)
+
 
 ;;;;; IRC
 
@@ -60,9 +60,15 @@
 
 ;;;;;; minor modes
 
+;; Line numbers
+
+(global-linum-mode 1)
+
 ;; Key bindings
+
 (my-keys-minor-mode 1)
 
 ;; Unset key bindings from minibuffer
+
 (defun my-minibuffer-setup-hook ()
   (my-keys-minor-mode 0))
